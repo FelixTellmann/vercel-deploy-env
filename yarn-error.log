@@ -1,0 +1,70 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\cmder\bin;C:\Program Files\cmder\vendor\bin;C:\Development\vercel-deploy-env\node_modules\.bin;C:\Ruby\bin;C:\Program Files\Python27\;C:\Program Files\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Felix\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\JetBrains\apps\IDEA-U\ch-1\211.7628.21\bin;C:\Program Files\planetscale;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\Felix\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Felix\AppData\Local\Programs\Python\Python39\;C:\Program Files\Ruby27-x64\bin;C:\Program Files\Ruby30-x64\bin;C:\Users\Felix\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\cmder
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.8.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Development\vercel-deploy-env\package.json: Unexpected token } in JSON at position 522
+      at JSON.parse (<anonymous>)
+      at C:\Users\Felix\AppData\Roaming\nvm\v16.8.0\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Felix\AppData\Roaming\nvm\v16.8.0\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Felix\AppData\Roaming\nvm\v16.8.0\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "deploy-env",
+    "description": "Deploy environment variables from .env and .env-cmdrc.json files to Vercel",
+    "version": "3.0.0",
+    "type": "commonjs",
+    "main": "./lib/mod.js",
+    "exports": "./lib/mod.js",
+    "bin": {
+      "dpl-env": "./lib/cli.js",
+      "deploy-env": "./lib/cli.js"
+    },
+    "scripts": {
+      "build": "rm -rf lib && tsc && pnpm shebang && pnpm terse",
+      "prepublishOnly": "pnpm build",
+      "shebang": "node scripts/shebang.mjs lib/cli.js",
+      "terse": "sucrase-node scripts/terse.ts lib/",
+    },
+    "dependencies": {
+      "env-cmd": "^10.1.0",
+      "p-limit": "^4.0.0"
+    },
+    "devDependencies": {
+      "@types/node": "^12.20.36",
+      "sucrase": "^3.20.3",
+      "terser": "^5.9.0",
+      "typescript": "^4.4.4"
+    },
+    "peerDependencies": {
+      "vercel": "^23.0.0"
+    },
+    "files": [
+      "lib"
+    ],
+    "engines": {
+      "node": ">=v12.22.7",
+      "pnpm": ">=6.19.0"
+    },
+    "repository": "github:Pytal/deploy-env",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
