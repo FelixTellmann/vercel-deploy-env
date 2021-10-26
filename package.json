@@ -16,9 +16,7 @@
     "terse": "sucrase-node scripts/terse.ts dist/"
   },
   "dependencies": {
-    "env-cmd": "^10.1.0",
-    "p-limit": "^4.0.0",
-    "p-throttle": "^5.0.0"
+    "env-cmd": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^12.20.36",

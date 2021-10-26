@@ -1,31 +1,21 @@
-import { exec, limit } from "../helpers/helpers";
+import { delay, exec } from "../helpers/helpers";
 import { printStdout } from "../helpers/print";
 import { getEnvMap } from "./get-env";
 import type { DeploymentEnv, EnvMap } from "../types/shared";
 
 const removeEnv = async (deploymentEnv: DeploymentEnv, envMap: EnvMap) => {
-  const throttled = (await limit)(async (varName: string) =>
-    exec(`vercel env rm ${varName} ${deploymentEnv} -y`).then(printStdout)
-  );
-
   for (const varName in envMap) {
-    (async () => {
-      console.log(await throttled(varName));
-    })();
+    exec(`vercel env rm ${varName} ${deploymentEnv} -y`).then(printStdout);
+    await delay(500);
   }
 };
 
 const addEnv = async (deploymentEnv: DeploymentEnv, envMap: EnvMap) => {
-  const throttled = (await limit)(async (varName: string) =>
+  for (const varName in envMap) {
     exec(`printf %s "${envMap[varName]}" | vercel env add ${varName} ${deploymentEnv}`).then(
       printStdout
-    )
-  );
-
-  for (const varName in envMap) {
-    (async () => {
-      console.log(await throttled(varName));
-    })();
+    );
+    await delay(500);
   }
 };
 
