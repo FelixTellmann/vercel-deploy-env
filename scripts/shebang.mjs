@@ -6,3 +6,4 @@ const contents = await fs.readFile(filePath, "utf-8");
 
 await fs.writeFile(filePath, shebang + contents);
 
+
