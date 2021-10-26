@@ -1,7 +1,7 @@
 {
   "name": "vercel-deploy-env",
   "description": "Deploy environment variables from .env and .env-cmdrc.json files to Vercel",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "commonjs",
   "main": "./dist/mod.js",
   "exports": "./dist/mod.js",
